@@ -8,6 +8,16 @@
 
 import UIKit
 
+/*
+ enum Droga {
+    case maconha
+    case alcool
+    case LSD
+    case quetamina
+    case cocaina
+    case cigarro
+}
+*/
 let drogas = ["Maconha", "Alcool", "LSD", "Quetamina", "Cocaína", "Cigarro"]
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -17,12 +27,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath)
+        let ItemCell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath)
+        ItemCell.layer.cornerRadius = 50
+        
+        return ItemCell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        PopUp.isHidden = false
+
+        self.view.bringSubview(toFront: PopUp)
+        
+    }
+    
+    @IBOutlet weak var PopUp: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        PopUp.isHidden = true
         // Do any additional setup after loading the view, typically from a nib.
     }
 
