@@ -18,7 +18,8 @@ import UIKit
     case cigarro
 }
 */
-let drogas = ["Maconha", "Alcool", "LSD", "Quetamina", "Cocaína", "Cigarro"]
+let drogas = ["Maconha", "Alcool", "LSD", "Cocaína", "Cigarro", "Metanfetamina", "Crack"]
+let logoImages = [UIImage(named: "Maconha"), UIImage(named: "Álcool"), UIImage(named: "LSD"), UIImage(named: "Cocaína"), UIImage(named: "Cigarro"), UIImage(named: "Metanfetamina"), UIImage(named: "Crack")]
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -27,8 +28,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let ItemCell: UICollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath)
+        let ItemCell: FormCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! FormCollectionViewCell
         ItemCell.layer.cornerRadius = 50
+        ItemCell.Menu.image = logoImages[indexPath.row]
         
         return ItemCell
     }
