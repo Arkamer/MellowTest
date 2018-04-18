@@ -19,7 +19,7 @@ import UIKit
 }
 */
 let drogas = ["Maconha", "Alcool", "LSD", "Cocaína", "Cigarro", "Metanfetamina", "Crack"]
-let logoImages = [UIImage(named: "Maconha"), UIImage(named: "Álcool"), UIImage(named: "LSD"), UIImage(named: "Cocaína"), UIImage(named: "Cigarro"), UIImage(named: "Metanfetamina"), UIImage(named: "Crack")]
+let logoImages = [UIImage(named: "Maconha"), UIImage(named: "Álcool"), UIImage(named: "lsd"), UIImage(named: "Cocaína"), UIImage(named: "Cigarro"), UIImage(named: "Metanfetamina"), UIImage(named: "Crack")]
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
@@ -31,6 +31,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let ItemCell: FormCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! FormCollectionViewCell
         ItemCell.layer.cornerRadius = 50
         ItemCell.Menu.image = logoImages[indexPath.row]
+        ItemCell.Título.text = drogas[indexPath.row]
         
         return ItemCell
     }
@@ -47,6 +48,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         PopUp.isHidden = true
+        
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -54,4 +57,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBOutlet weak var SOS: UIButton!
+    
+    
 }
